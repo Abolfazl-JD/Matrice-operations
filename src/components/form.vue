@@ -1,9 +1,10 @@
 <template>
     <v-container fluid>
-        <h2 class="mb-10">Create your {{title}} Matrix</h2>
+        <h2 class="mb-10">Create your {{title}} Matrice</h2>
         <v-form ref="form" >
         <v-text-field
             autofocus
+            class="mb-10"
             v-model.number="rows"
             hint="choose a number"
             type="number"
@@ -12,13 +13,13 @@
         </v-text-field>
         <v-text-field
             v-model.number="coloumns"
-            class="mt-5"
+            class="mt-5 mb-10"
             hint="choose a number"
             type="number"
             label="coloumns :"
             required>
         </v-text-field>
-        <v-btn color="success darken-4"  class="mt-4" @click="formHandling">create {{title}} matrix</v-btn>
+        <v-btn color="success darken-4"  class="mt-4" @click="formHandling">create {{title}} Matrice</v-btn>
     </v-form>
     </v-container>
 </template>

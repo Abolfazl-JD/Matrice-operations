@@ -4,7 +4,7 @@
       color="primary"
       dark
     >
-      <h2>Matrix operations</h2>
+      <h2>Matrice operations</h2>
 
       <v-spacer></v-spacer>
 
