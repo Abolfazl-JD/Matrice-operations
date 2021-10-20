@@ -51,8 +51,8 @@
         </v-row>
 
         <!-- choose operation -->
-        <v-row class="mt-16">
-          <v-col  md="4" sm="6" v-if="confirm2">
+        <v-row class="mt-16" v-if="confirm2">
+          <v-col  md="4" sm="6">
             <v-select
               v-model="selected"
               :items="items"
@@ -61,6 +61,11 @@
               item-text="name"
               item-disabled="disable"
             ></v-select>
+          </v-col>
+
+          <!-- refresh the page -->
+          <v-col  md="4" sm="6" class="text-right">
+            <v-btn @click="refresh" class="warning darken-3">make another matrices</v-btn>
           </v-col>
         </v-row>
 
@@ -127,6 +132,10 @@ export default {
               return this.matrix1[i].reduce((sum, elm, k) => sum + (elm*this.matrix2[k][j]) ,0)
           })
         })
+    },
+
+    refresh(){
+      window.location.reload()
     }
   },
 
