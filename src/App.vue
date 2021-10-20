@@ -4,7 +4,8 @@
     <v-main class="mt-10">
       <v-container fluid>
         <v-row>
-
+          
+          <!-- show of Matrices -->
           <v-col v-if="matrix1" md="2" sm="12" :class="{'text-right' : operation, 'op' : operation}">
             <ShowMatrix :matrix="matrix1"/>
           </v-col>
@@ -17,7 +18,7 @@
             <ShowMatrix :matrix="matrix2"/>
           </v-col>
 
-          <!-- first Matrix -->
+          <!-- create first Matrix -->
           <v-col v-if="!matrix1" md="3" sm="12" class="pl-10">
             <Form @sendMatrix="getMatrix" title="first" />
           </v-col>
@@ -26,7 +27,7 @@
             <ChooseNumber :matrix="matrix1" @confirm="confirm" />
           </v-col>
 
-          <!-- second Matrix -->
+          <!-- create second Matrix -->
           <v-col v-if="!matrix2 && confirm1" md="3" sm="12" class="pl-10">
             <Form @sendMatrix="getMatrix" title="second" />
           </v-col>
@@ -35,6 +36,7 @@
             <ChooseNumber :matrix="matrix2" @confirm="confirm" />
           </v-col>
 
+          <!-- calculations -->
           <v-col v-if="operation && !result" md="3" sm="4" class="calculate">
             <v-btn class="success" @click="calculate">calculate</v-btn>
           </v-col>
@@ -48,6 +50,7 @@
           </v-col>
         </v-row>
 
+        <!-- choose operation -->
         <v-row class="mt-16">
           <v-col  md="4" sm="6" v-if="confirm2">
             <v-select
