@@ -4,14 +4,15 @@
       color="primary"
       dark
     >
-      <h2>Matrice operations</h2>
+      <h2 class="d-none d-sm-block">Matrice operations</h2>
 
-      <v-spacer></v-spacer>
+      <v-spacer class="d-none d-sm-block"></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://github.com/abolfazl-hue"
         target="_blank"
         text
+        class="mx-auto"
       >
         <span class="mr-2">Abolfazl jalildoost</span>
       </v-btn>

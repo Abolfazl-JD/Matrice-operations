@@ -1,9 +1,8 @@
 <template>
   <v-container fluid>
       <v-form  ref="form">
-          <div class="row-nums" v-for="(row, rowNumber) in matrix" :key="rowNumber">
-            <v-row align="center" justify="center">
-                <v-col md="2" sm="6"  class="coloumn mr-15" v-for="(coloumn , colNumber) in row" :key="colNumber">
+            <v-row align="center" justify="center" class="pr-5" v-for="(row, rowNumber) in matrix" :key="rowNumber">
+                <v-col md="2" sm="12" cols="12"  class="coloumn mr-sm-15" v-for="(coloumn , colNumber) in row" :key="colNumber">
                     <v-text-field v-model.number="editedMatrix[rowNumber][colNumber]"
                     :label="`${rowNumber + 1} × ${colNumber + 1}`"
                     type="number"
@@ -13,7 +12,6 @@
                 ></v-text-field>
                 </v-col>
             </v-row>
-        </div>
       </v-form>
         <v-btn class="primary mx-auto d-block mt-10" @click="confirm">confirm</v-btn>
   </v-container>

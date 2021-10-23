@@ -43,7 +43,7 @@ export default {
             matrix : null,
             numbRules: [
                 v => (!!v || v === 0) || 'Number is required',
-                v => (v && v >= 1) || 'Name must be greater than zero (0)',
+                v => (v && v >= 1) || 'Number must be greater than zero (0)',
             ],
         }
     },

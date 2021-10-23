@@ -6,42 +6,42 @@
         <v-row>
           
           <!-- show of Matrices -->
-          <v-col v-if="matrix1" md="2" sm="12" :class="{'text-right' : operation, 'op' : operation}">
+          <v-col v-if="matrix1" md="2" sm="12" class="text-center" :class="{'text-sm-right' : operation, 'op' : operation}">
             <ShowMatrix :matrix="matrix1"/>
           </v-col>
 
-          <v-col v-if="operation" md="1" sm="12" class="text-center op font-50">
+          <v-col v-if="operation" md="1" sm="12" cols="12" class="text-center op font-50">
             {{operation}}
           </v-col>
 
-          <v-col v-if="matrix2" md="2" sm="12" class="op">
+          <v-col v-if="matrix2" md="2" sm="12" class="op text-center text-sm-left" cols="12">
             <ShowMatrix :matrix="matrix2"/>
           </v-col>
 
-          <!-- create first Matrix -->
-          <v-col v-if="!matrix1" md="3" sm="12" class="pl-10">
+          <!-- create first Matrice -->
+          <v-col v-if="!matrix1" md="3" sm="12" class="pl-sm-10">
             <Form @sendMatrix="getMatrix" title="first" />
           </v-col>
 
-          <v-col v-if="matrix1 && !confirm1" cols="8" class="pl-10">
+          <v-col v-if="matrix1 && !confirm1" cols="12" class="pl-sm-10">
             <ChooseNumber :matrix="matrix1" @confirm="confirm" />
           </v-col>
 
-          <!-- create second Matrix -->
-          <v-col v-if="!matrix2 && confirm1" md="3" sm="12" class="pl-10">
+          <!-- create second Matrice -->
+          <v-col v-if="!matrix2 && confirm1" md="3" sm="12" class="pl-sm-10">
             <Form @sendMatrix="getMatrix" title="second" />
           </v-col>
 
-          <v-col v-if="matrix2 && !confirm2" cols="8" sm="12" class="pl-10">
+          <v-col v-if="matrix2 && !confirm2" cols="12" class="pl-sm-10">
             <ChooseNumber :matrix="matrix2" @confirm="confirm" />
           </v-col>
 
           <!-- calculations -->
-          <v-col v-if="operation && !result" md="3" sm="4" class="calculate">
-            <v-btn class="success" @click="calculate">calculate</v-btn>
+          <v-col v-if="operation && !result" md="3" sm="4" class="calculate text-center">
+            <v-btn class="success darken-2" @click="calculate">calculate</v-btn>
           </v-col>
           
-          <v-col v-if="result" md="1" sm="1" class="text-left align-self-center font-50">
+          <v-col v-if="result" md="1" sm="1" class="text-center text-sm-left align-self-center font-50">
             =
           </v-col>
 
@@ -52,7 +52,7 @@
 
         <!-- choose operation -->
         <v-row class="mt-16" v-if="confirm2">
-          <v-col  md="4" sm="6">
+          <v-col  md="4" sm="12">
             <v-select
               v-model="selected"
               :items="items"
@@ -64,8 +64,13 @@
           </v-col>
 
           <!-- refresh the page -->
-          <v-col  md="4" sm="6" class="text-right">
-            <v-btn @click="refresh" class="warning darken-3">make another matrices</v-btn>
+          <v-col  md="4" sm="6" class="text-center text-sm-right">
+            <v-btn @click="refresh" class="orange darken-4">make another matrices</v-btn>
+          </v-col>
+
+          <!-- continue operation on result -->
+          <v-col  md="4" sm="6" class="text-center text-sm-left" v-if="result">
+            <v-btn @click="continueResult" class="pink darken-3">continue with result</v-btn>
           </v-col>
         </v-row>
 
@@ -136,6 +141,14 @@ export default {
 
     refresh(){
       window.location.reload()
+    },
+
+    continueResult(){
+      this.matrix1 = Object.assign([], this.result)
+      this.matrix2 = null
+      this.result = null
+      this.confirm2 = false
+      this.selected = ''
     }
   },
 
@@ -188,7 +201,7 @@ export default {
 }
 
 .font-50{
-  font-size: 50px;
+  font-size: 47px;
 }
 
 .calculate{
