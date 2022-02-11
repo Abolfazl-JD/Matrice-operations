@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "pwa": "^1.9.7",
     "vue": "^2.6.11",
     "vuetify": "^2.4.0"
   },
